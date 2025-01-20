@@ -1,0 +1,10 @@
+@import './variables';
+@import './reset.scss';
+
+body {
+  font-family: $fontFamily;
+  font-size: $fontSizeBase;
+  background-color: $backgroundColor;
+  color: $fontColorDark;
+}
+
