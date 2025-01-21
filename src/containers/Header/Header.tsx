@@ -16,7 +16,7 @@ const Header = ({ menuItems, className, children }: HeaderProps) => {
 		<header className={clsx(styles.header, className)}>
 			<Logo />
 			<Menu items={menuItems} className={styles.menu} />
-			<div>{children}</div>
+			{children && <div>{children}</div>}
 		</header>
 	);
 };

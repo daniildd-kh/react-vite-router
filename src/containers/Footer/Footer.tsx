@@ -14,7 +14,7 @@ const Footer = ({ menuItems, className }: FooterProps) => {
 	return (
 		<footer className={clsx(styles.footer, className)}>
 			<Logo />
-			<Menu items={menuItems} />
+			<Menu items={menuItems} className={styles.menu}/>
 		</footer>
 	);
 };
