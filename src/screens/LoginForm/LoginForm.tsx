@@ -4,6 +4,7 @@ import Field from '@/components/Field/Field';
 import { InputEmail, InputPassword } from '@/components/Input/Input';
 import { SubmitButton } from '@/components/Action/Action';
 import { Text } from '@/components/Typography/Typography';
+import { loginMockFetch } from '@/api/utils';
 
 const LoginForm = () => {
 	const [formData, setFormData] = useState({
@@ -34,7 +35,12 @@ const LoginForm = () => {
 		}
 
 		try {
+			await loginMockFetch(formData);
 			alert('Вход выполнен');
+			setFormData({
+				email: '',
+				password: '',
+			});
 		} catch {
 			alert('Ошибка входа');
 		}
