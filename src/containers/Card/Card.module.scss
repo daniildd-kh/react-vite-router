@@ -1,0 +1,8 @@
+@use '@styles/variables' as *;
+
+.card {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: $backgroundColor;
+}
+
