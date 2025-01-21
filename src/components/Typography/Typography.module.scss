@@ -1,0 +1,24 @@
+@use '@styles/variables' as *;
+
+.typography{
+  font-family: $fontFamily;
+  line-height: 1.2;
+  font-size: $fontSizeBase;
+  font-weight: $fontWeightRegular;
+  color: $fontColorDark;
+
+}
+
+.title{
+  font-size: $fontSizeTitle;
+}
+
+.text{
+  font-size: $fontSizeBase;
+}
+
+.smallText{
+  font-family: $fontFamilyAdditional;
+  font-size: $fontSizeSmall;
+  color: $fontColorLight;
+}
