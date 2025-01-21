@@ -13,7 +13,7 @@ const Logo = ({ className, onClick }: LogoProps) => {
       onClick={onClick}
     >
       <img
-        src="../../../public/favicon.svg" 
+        src="/favicon.svg" 
         alt="Logo"
         className={styles.image}
       />

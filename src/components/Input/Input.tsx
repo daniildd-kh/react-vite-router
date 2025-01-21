@@ -6,6 +6,7 @@ type InputProps = {
   onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void);
   placeholder?: string;
   className?: string;
+  name?: string;
 }
 
 function withInput(defaults: InputProps){
@@ -13,12 +14,14 @@ function withInput(defaults: InputProps){
     value,
     onChange,
     placeholder,
+    name,
     className,
     inputTypeProp = defaults.inputTypeProp || 'text',
   }:InputProps
   ){
     return(
       <input
+        name={name}
         value={value}
         type={inputTypeProp}
         onChange={onChange}

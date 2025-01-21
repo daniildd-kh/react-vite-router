@@ -18,7 +18,7 @@ const Menu = ({ items, className, ...props }:MenuProps) => {
           <li key={index} className={styles.menuItem}>
             <Anchor
               href={item.href}
-              className={clsx(styles.menuLink, item.className)}
+              className={item.className}
             >
               {item.label}
             </Anchor>

@@ -7,6 +7,7 @@ type FieldProps = {
 	text?: string;
 	value?: string;
 	type?: string;
+	name?: string;
 	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 	placeholder?: string;
 	inputComponent?: React.ElementType;
@@ -15,6 +16,7 @@ type FieldProps = {
 const Field = ({
 	className,
 	text,
+	name,
 	value,
 	type,
 	onChange,
@@ -41,6 +43,7 @@ const Field = ({
 			<Input
 				className={styles.input}
 				type={type}
+				name={name}
 				onChange={onInputChange}
 				value={valueInput}
 				placeholder={placeholder}
