@@ -6,11 +6,10 @@
 	color: $fontColorLight;
 	background-color: $accentColor;
 	border: none;
+  width: fit-content; 
+  max-width: 100%; 
 	cursor: pointer;
 	border-radius: 6px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
 	transition:
 		background-color 0.3s ease,
 		transform 0.2s ease;
