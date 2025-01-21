@@ -1,0 +1,12 @@
+@use '@styles/variables' as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 80px;
+  padding-inline: 160px;
+  background-color: $secondaryColor;
+}
+
+
