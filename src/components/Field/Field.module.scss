@@ -1,0 +1,28 @@
+@use '@styles/variables' as *;
+
+.label{
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.span{
+  font-family: $fontFamilyAdditional;
+  font-size: $fontSizeSmall;
+  font-weight: $fontWeightRegular;
+  line-height: 120%;
+}
+
+.input{
+  max-width: 358px;
+  border-radius: 6px;
+  padding-block: 6px;
+  padding-right: 12px;
+  padding-left: 16px;
+  background-color: $fieldColor;
+  transition: background-color 0.3s ease,
+}
+
+.input:hover{
+  background-color: $fieldHoverColor;
+}
