@@ -4,9 +4,12 @@ import Field from '@/components/Field/Field';
 import { InputEmail, InputPassword } from '@/components/Input/Input';
 import { SubmitButton } from '@/components/Action/Action';
 import { Text } from '@/components/Typography/Typography';
-import { loginMockFetch } from '@/api/utils';
 
-const LoginForm = () => {
+type LoginFormProps  = {
+	onSubmit: (data: {email: string, password: string}) => Promise<void>;
+}
+
+const LoginForm = ({onSubmit}:LoginFormProps) => {
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
@@ -26,24 +29,23 @@ const LoginForm = () => {
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-
 		const { email, password } = formData;
 
 		if (!email || !password) {
 			setError('Все поля должны быть заполнены');
 			return;
 		}
+		try{
+			await onSubmit(formData);
 
-		try {
-			await loginMockFetch(formData);
-			alert('Вход выполнен');
 			setFormData({
 				email: '',
 				password: '',
 			});
-		} catch {
-			alert('Ошибка входа');
+		}catch(error){
+			setError(`Ошибка входа ${error}`)
 		}
+
 	};
 
 	return (

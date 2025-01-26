@@ -1,18 +1,21 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import clsx from "clsx";
 import styles from "./Modal.module.scss";
+import { Button } from "../Action/Action";
+import { createPortal } from "react-dom";
+import { Text } from "../Typography/Typography";
 
 type ModalProps = {
-  children: ReactNode;
-  isOpen: boolean;
-  onClose: () => void;
+  children?: ReactNode;
+  isOpen?: boolean;
+  onClose?: () => void;
   className?: string;
 };
 
-const Modal = ({ children, isOpen, onClose, className, ...props }: ModalProps) => {
+export const Modal = ({ children, isOpen, onClose, className, ...props }: ModalProps) => {
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div className={clsx(styles.modalOverlay)} onClick={onClose}>
       <div
         className={clsx(styles.modalContent, className)}
@@ -24,8 +27,30 @@ const Modal = ({ children, isOpen, onClose, className, ...props }: ModalProps) =
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
-export default Modal;
+interface ModalWithTriggerProps{
+  children?: ReactNode;
+  triggerText?: string;
+  className?: string;
+}
+
+export const ModalWithTrigger = ({children, triggerText, className}:ModalWithTriggerProps) =>{
+
+  const [showModal, setShowOpen] = useState(false);
+  const closeModal = () => setShowOpen(false);
+  const openModal = () => setShowOpen(true);
+  
+  return(
+  <>
+    <Button onClick={openModal}>
+      <Text value={triggerText}/>
+    </Button>
+    <Modal isOpen={showModal} onClose={closeModal} className={className}>
+      {children} 
+    </Modal>
+  </>)
+}

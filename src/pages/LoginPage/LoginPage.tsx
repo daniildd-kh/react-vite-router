@@ -1,17 +1,23 @@
-import React from 'react';
-import Layout from '@/containers/Layout/Layout';
 import Section from '@/containers/Section/Section';
 import Card from '@/containers/Card/Card';
-import LoginForm from '@/screens/LoginForm/LoginForm';
+import { loginMockFetch } from '@/api/utils';
+import { useAuth } from '@/hooks/useAuth';
+import React, { Suspense } from 'react';
+
+const LazyLoginForm = React.lazy(() => import('@/screens/LoginForm/LoginForm'));
 
 const LoginPage = () => {
-  return (
-      <Section>
-        <Card>
-          <LoginForm />
-        </Card>
-      </Section>
-  );
+	const { handleLoginSubmit } = useAuth();
+
+	return (
+		<Section>
+			<Card>
+				<Suspense fallback={<div>Loading...</div>}>
+					<LazyLoginForm onSubmit={handleLoginSubmit} />
+				</Suspense>
+			</Card>
+		</Section>
+	);
 };
 
 export default LoginPage;

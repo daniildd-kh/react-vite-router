@@ -6,7 +6,11 @@ import { SubmitButton } from '@/components/Action/Action';
 import { Text } from '@/components/Typography/Typography';
 import { registerMockFetch } from '@/api/utils';
 
-const RegisterForm = () => {
+type RegisterFormProps = {
+	onSubmit: (data: {username: string, email: string, password: string, confirmPassword: string}) => Promise<void>;
+};
+
+const RegisterForm = ({onSubmit}: RegisterFormProps) => {
 	const [formData, setFormData] = useState({
 		username: '',
 		email: '',
@@ -42,8 +46,8 @@ const RegisterForm = () => {
 		}
 
 		try {
-			await registerMockFetch(formData);
-			alert('Регистрация успешна');
+			await onSubmit(formData);
+			
 			setFormData({
 				username: '',
 				email: '',

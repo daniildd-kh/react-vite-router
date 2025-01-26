@@ -8,7 +8,7 @@ type LogoProps = {
 
 const Logo = ({ className, onClick }: LogoProps) => {
   return (
-    <div
+    <a
       className={clsx(styles.logo, className)}
       onClick={onClick}
     >
@@ -17,7 +17,7 @@ const Logo = ({ className, onClick }: LogoProps) => {
         alt="Logo"
         className={styles.image}
       />
-    </div>
+    </a>
   );
 };
 
