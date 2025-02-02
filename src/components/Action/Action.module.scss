@@ -1,0 +1,36 @@
+@use '@styles/variables' as *;
+
+.button {
+	padding-block: 20px;
+	padding-inline: 32px;
+	color: $fontColorLight;
+	background-color: $accentColor;
+	border: none;
+  width: fit-content; 
+  max-width: 100%; 
+	cursor: pointer;
+	border-radius: 6px;
+	transition:
+		background-color 0.3s ease,
+		transform 0.2s ease;
+
+	&:hover {
+		background-color: $accentHoverColor;
+	}
+}
+
+.primary {
+  background-color: $primaryColor;
+
+  &:hover {
+    background-color: $primaryHoverColor;
+  }
+}
+
+.secondary {
+  background-color: $secondaryColor;
+
+  &:hover {
+    background-color: $secondaryHoverColor;
+  }
+}

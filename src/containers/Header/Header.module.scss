@@ -1,0 +1,14 @@
+@use '@styles/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 20px;
+  padding-inline: 80px;
+  background-color: $primaryColor;
+}
+
+.menu{
+  color: $fontColorLight;
+}

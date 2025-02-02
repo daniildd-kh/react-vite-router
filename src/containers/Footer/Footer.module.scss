@@ -1,0 +1,16 @@
+@use '@styles/variables' as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 20px;
+  padding-inline: 80px;
+  background-color: $accentColor;
+}
+
+.menu{
+  color: $fontColorLight;
+}
+
+

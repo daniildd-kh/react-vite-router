@@ -1,0 +1,10 @@
+@use './_variables' as *;
+@use './reset';
+
+body {
+  font-family: $fontFamily;
+  font-size: $fontSizeBase;
+  background-color: $backgroundColor;
+  color: $fontColorDark;
+}
+
